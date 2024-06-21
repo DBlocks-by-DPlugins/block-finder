@@ -1,0 +1,17 @@
+@import 'partials/reset';
+@import 'partials/header';
+
+#bf-blocks-container{
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem
+}
+
+.bf-block-group{
+    display: flex;
+}
+
+.bf-block-group h2{
+    min-width: 300px;
+}   
