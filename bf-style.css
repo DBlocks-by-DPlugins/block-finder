@@ -108,11 +108,15 @@ header h1 {
   letter-spacing: 0.02rem;
 }
 .bf-block-group ul li a:hover {
-  background-color: #f1f5f9;
+  background-color: #4f46e5;
+  color: white;
 }
 .bf-block-group ul li a:hover .external-link {
   display: block;
   transform: rotate(-45deg);
+}
+.bf-block-group ul li a .dashicons, .bf-block-group ul li a .dashicons-before:before {
+  transition: color 0s ease-in !important;
 }
 .bf-block-group ul li:last-child {
   border-bottom: 0;
@@ -132,7 +136,7 @@ header h1 {
 #bf-no-results {
   display: none;
   padding: 20px;
-  background-color: #000000;
+  background-color: #0f172a;
   color: #ffffff;
   border-radius: 10px;
   margin: 20px 0;

@@ -39,12 +39,17 @@
                 letter-spacing: 0.02rem;
 
                 &:hover{
-                    background-color: $grey-100;
+                    background-color: $action;
+                    color: white;
 
                     .external-link {
                         display: block;
                         transform: rotate(-45deg);
                     }
+                }
+
+                .dashicons, .dashicons-before:before{
+                    transition: color 0s ease-in !important;
                 }
             }
 
@@ -75,7 +80,7 @@
 #bf-no-results {
     display: none;
     padding: 20px;
-    background-color: #000000;
+    background-color: $grey-900;
     color: #ffffff;
     border-radius: 10px;
     margin: 20px 0;
