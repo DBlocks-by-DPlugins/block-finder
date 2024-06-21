@@ -4,6 +4,9 @@ Plugin Name: Block Finder
 Description: Displays all blocks grouped by name, listing posts and pages where each block is used.
 Version: 1.0.0
 Author: DPlugins
+Author URI:        https://dplugins.com/
+Update URI:        https://github.com/krstivoja/block-finder
+Text Domain:       dp-block-finder
 */
 
 if ( ! defined( 'ABSPATH' ) ) {

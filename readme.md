@@ -29,10 +29,10 @@ Block Finder is a WordPress plugin that helps you discover and manage the usage 
    ![Main Interface](img/1.png)
    
 2. **Search Feature**
-   ![Search Feature](img/3.png)
+   ![Search Feature](img/2.png)
    
 3. **No Results Banner**
-   ![No Results Banner](img/2.png)
+   ![No Results Banner](img/3.png)
 
 ## Contributing
 
@@ -49,8 +49,5 @@ This plugin is licensed under the GPL-2.0-or-later license. See the [LICENSE](LI
 
 ## Credits
 
-Block Finder is developed and maintained by [DPlugins](https://yourwebsite.com).
+Block Finder is developed and maintained by [DPlugins](https://dplugins.com/).
 
-## Support
-
-If you encounter any issues or have questions about the Block Finder plugin, please open an issue on GitHub or contact us via [support@yourwebsite.com](mailto:support@yourwebsite.com).
