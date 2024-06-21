@@ -42,7 +42,7 @@ class BlockFinder {
                 <!-- <button>Toggle</button> -->
             </header>
             <div id="bf-blocks-container">
-                <div id="bf-no-results">No blocks found.</div>
+                <div id="bf-no-results" >🔥 No blocks found.</div>
                 <?php $this->bf_display_blocks(); ?>
             </div>
         </div>

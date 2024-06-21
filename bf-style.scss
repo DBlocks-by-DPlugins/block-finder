@@ -72,14 +72,13 @@
 
 
 
-/* Existing CSS code */
-
 #bf-no-results {
     display: none;
     padding: 20px;
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-    border-radius: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 10px;
     margin: 20px 0;
-  }
+    text-align: center;
+    font-size: 24px;
+}

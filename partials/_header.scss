@@ -28,6 +28,9 @@ header{
     input{
         width: 100%;
         padding: 0.5rem 1rem;
+        background-color: $grey-50;
+        border: 1px solid $grey-600;
+
         &:focus{
             outline-offset: 2px;
             outline: 2px solid $blue-200;
