@@ -13,7 +13,7 @@ header{
 
     h1{
         padding: 0 !important;
-        font-size: 24px;
+        font-size: 32px !important;
         font-weight: bold !important;
     }
 }
@@ -27,6 +27,11 @@ header{
 
     input{
         width: 100%;
+        padding: 0.5rem 1rem;
+        &:focus{
+            outline-offset: 2px;
+            outline: 2px solid $blue-200;
+        }
     }
 
     button{

@@ -29,7 +29,7 @@ header {
 }
 header h1 {
   padding: 0 !important;
-  font-size: 24px;
+  font-size: 32px !important;
   font-weight: bold !important;
 }
 
@@ -42,6 +42,11 @@ header h1 {
 }
 #bf-search-form input {
   width: 100%;
+  padding: 0.5rem 1rem;
+}
+#bf-search-form input:focus {
+  outline-offset: 2px;
+  outline: 2px solid #bfdbfe;
 }
 #bf-search-form button {
   position: absolute;
@@ -119,5 +124,16 @@ header h1 {
   top: 120px;
 }
 .bf-block-group h2 {
-  font-size: 20px;
+  font-size: 28px;
+}
+
+/* Existing CSS code */
+#bf-no-results {
+  display: none;
+  padding: 20px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  margin: 20px 0;
 }/*# sourceMappingURL=bf-style.css.map */

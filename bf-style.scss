@@ -66,6 +66,20 @@
     }
 
     h2{
-        font-size: 20px;
+        font-size: 28px;
     }   
 }
+
+
+
+/* Existing CSS code */
+
+#bf-no-results {
+    display: none;
+    padding: 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
