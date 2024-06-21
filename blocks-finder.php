@@ -75,11 +75,11 @@ class BlockFinder {
 
         foreach ($blocks as $block_title => $block_posts) {
             echo '<div class="bf-block-group" data-block-title="' . esc_attr($block_title) . '">';
-            echo '<h2>' . esc_html($block_title) . '</h2>';
+            echo '<div class="title-wrap"><h2>' . esc_html($block_title) . '</h2></div>';
             echo '<ul>';
             foreach ($block_posts as $post_id => $post_title) {
                 if (!empty($post_title)) {
-                    echo '<li><a target="_blank" href="' . get_edit_post_link($post_id) . '">' . esc_html($post_title) . ' →</a></li>';
+                    echo '<li><a target="_blank" href="' . get_edit_post_link($post_id) . '">' . esc_html($post_title) . ' <span aria-hidden="true">→</span></a></li>';
                 }
             }
             echo '</ul>';

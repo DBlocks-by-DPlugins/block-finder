@@ -1,3 +1,4 @@
+@import 'partials/colors';
 @import 'partials/reset';
 @import 'partials/header';
 
@@ -10,8 +11,62 @@
 
 .bf-block-group{
     display: flex;
+
+    ul{
+        border: 1px solid $grey;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        flex-grow: 1;
+        box-shadow: 2px 6px 8px #edeff2;
+
+        li{
+            border-bottom: 1px solid $grey;
+            margin: 0;
+
+            span{
+                display: none;
+            }
+
+            a{
+                padding: 1rem;
+                display: flex;
+                gap: 1rem;
+                // justify-content: space-between;
+                text-decoration: none;
+
+                color: $blue-600;
+                font-size: 1rem;
+                letter-spacing: 0.02rem;
+
+                &:hover{
+                    background-color: $grey-100;
+
+                    span{
+                        display: block;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+
+            &:last-child{
+                border-bottom: 0;
+            }
+        }
+    }
 }
 
-.bf-block-group h2{
-    min-width: 300px;
-}   
+.bf-block-group {
+    .title-wrap{
+        min-width: 300px;
+        height: 100%;
+        position: relative;
+
+        position: sticky;
+        top: 120px;
+    }
+
+    h2{
+        font-size: 20px;
+    }   
+}
