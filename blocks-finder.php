@@ -39,7 +39,7 @@ class BlockFinder {
             <header>
                 <h1>Block Finder</h1>
                 <?php $this->bf_display_search_form(); ?>
-                <button>Toggle</button>
+                <!-- <button>Toggle</button> -->
             </header>
             <div id="bf-blocks-container">
                 <?php $this->bf_display_blocks(); ?>
