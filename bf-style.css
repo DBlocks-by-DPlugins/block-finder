@@ -88,7 +88,7 @@ header h1 {
   border-bottom: 1px solid #cbd5e1;
   margin: 0;
 }
-.bf-block-group ul li span {
+.bf-block-group ul li .external-link {
   display: none;
 }
 .bf-block-group ul li a {
@@ -103,7 +103,7 @@ header h1 {
 .bf-block-group ul li a:hover {
   background-color: #f1f5f9;
 }
-.bf-block-group ul li a:hover span {
+.bf-block-group ul li a:hover .external-link {
   display: block;
   transform: rotate(-45deg);
 }

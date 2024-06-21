@@ -24,7 +24,7 @@
             border-bottom: 1px solid $grey;
             margin: 0;
 
-            span{
+            .external-link {
                 display: none;
             }
 
@@ -42,7 +42,7 @@
                 &:hover{
                     background-color: $grey-100;
 
-                    span{
+                    .external-link {
                         display: block;
                         transform: rotate(-45deg);
                     }

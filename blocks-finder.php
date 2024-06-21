@@ -79,7 +79,10 @@ class BlockFinder {
             echo '<ul>';
             foreach ($block_posts as $post_id => $post_title) {
                 if (!empty($post_title)) {
-                    echo '<li><a target="_blank" href="' . get_edit_post_link($post_id) . '">' . esc_html($post_title) . ' <span aria-hidden="true">→</span></a></li>';
+                    $post_type = get_post_type($post_id);
+                    $post_type_obj = get_post_type_object($post_type);
+                    $dashicon = $post_type_obj->menu_icon ? $post_type_obj->menu_icon : 'dashicons-admin-post';
+                    echo '<li><a target="_blank" href="' . get_edit_post_link($post_id) . '"><span class="dashicons ' . esc_attr($dashicon) . '"></span> ' . esc_html($post_title) . ' <span class="external-link" aria-hidden="true">→</span></a></li>';
                 }
             }
             echo '</ul>';
