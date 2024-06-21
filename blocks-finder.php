@@ -78,7 +78,9 @@ class BlockFinder {
             echo '<h2>' . esc_html($block_title) . '</h2>';
             echo '<ul>';
             foreach ($block_posts as $post_id => $post_title) {
-                echo '<li><a target="_blank" href="' . get_edit_post_link($post_id) . '">' . esc_html($post_title) . ' →</a></li>';
+                if (!empty($post_title)) {
+                    echo '<li><a target="_blank" href="' . get_edit_post_link($post_id) . '">' . esc_html($post_title) . ' →</a></li>';
+                }
             }
             echo '</ul>';
             echo '</div>';
