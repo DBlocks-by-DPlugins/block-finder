@@ -33,7 +33,7 @@ class BlockFinder {
             return;
         }
         wp_enqueue_script('bf-script', plugin_dir_url(__FILE__) . 'bf-script.js', array('jquery'), '1.0', true);
-        wp_enqueue_style('bf-style', plugin_dir_url(__FILE__) . 'bf-style.css');
+        wp_enqueue_style('bf-style', plugin_dir_url(__FILE__) . 'bf-style-min.css');
     }
 
     public function bf_options_page() {
