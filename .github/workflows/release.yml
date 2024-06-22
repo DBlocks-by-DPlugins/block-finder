@@ -28,7 +28,10 @@ jobs:
           fi
 
       - name: "Build release: Stable"
-        run: npm run build
+        run: |
+          if [ -f package.json ]; then
+            npm run build
+          fi
 
       - name: "Copy files to distribution directory excluding .distignore entries"
         run: |
