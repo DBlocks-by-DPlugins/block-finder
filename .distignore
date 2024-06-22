@@ -1,14 +1,10 @@
 .github 
 .github/workflows 
-
 img/
 partials/
 dist/
-
 .distignore 
-
 bf-style.css 
 bf-style.css.map 
 bf-style.scss 
-
 readme.md

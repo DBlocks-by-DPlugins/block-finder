@@ -36,7 +36,12 @@ jobs:
       - name: "Copy files to distribution directory excluding .distignore entries"
         run: |
           mkdir -p dist
-          rsync -a --delete --exclude-from='.distignore' ./ dist/
+          rsync -av --delete --exclude-from='.distignore' . ./dist/
+
+      - name: "Remove unwanted files from distribution directory"
+        run: |
+          cd dist
+          rm -rf .distignore .git .github bf-style.css bf-style.css.map bf-style.scss
 
       - name: "Create a Release Archive"
         run: |
@@ -51,4 +56,4 @@ jobs:
         with:
           files: block-finder.zip
         env:
-          GITHUB_TOKEN: ${{ secrets.WPSCRIPTS_TOKEN }} # Ensure this token has the right permissions and change secret to your name
+          GITHUB_TOKEN: ${{ secrets.WPSCRIPTS_TOKEN }}
