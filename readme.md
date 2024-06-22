@@ -13,7 +13,7 @@ Block Finder is a WordPress plugin that helps you discover and manage the usage 
 
 ## Installation
 
-1. Download the `block-finder` plugin files and upload them to your WordPress site's `wp-content/plugins/` directory.
+1. Download the [block-finder plugin files from the latest release](https://github.com/krstivoja/block-finder/releases/download/1.0.2/block-finder.zip) and upload them to your WordPress site's `wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 ## Usage
