@@ -15,20 +15,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class BlockFinder {
     public function __construct() {
-        add_action('admin_menu', array($this, 'bf_add_admin_menu'));
-        add_action('admin_init', array($this, 'bf_settings_init'));
-        add_action('admin_enqueue_scripts', array($this, 'bf_enqueue_scripts'));
+        add_action('admin_menu', array($this, 'BFINDER_add_admin_menu'));
+        add_action('admin_init', array($this, 'BFINDER_settings_init'));
+        add_action('admin_enqueue_scripts', array($this, 'BFINDER_enqueue_scripts'));
     }
 
-    public function bf_add_admin_menu() {
-        add_menu_page('Block Finder', 'Block Finder', 'manage_options', 'block_finder', array($this, 'bf_options_page'));
+    public function BFINDER_add_admin_menu() {
+        add_menu_page('Block Finder', 'Block Finder', 'manage_options', 'block_finder', array($this, 'BFINDER_options_page'));
     }
 
-    public function bf_settings_init() {
-        register_setting('pluginPage', 'bf_settings');
+    public function BFINDER_settings_init() {
+        register_setting('pluginPage', 'BFINDER_settings');
     }
 
-    public function bf_enqueue_scripts($hook) {
+    public function BFINDER_enqueue_scripts($hook) {
         if ($hook != 'toplevel_page_block_finder') {
             return;
         }
@@ -36,23 +36,23 @@ class BlockFinder {
         wp_enqueue_style('bf-style', plugin_dir_url(__FILE__) . 'bf-style-min.css');
     }
 
-    public function bf_options_page() {
+    public function BFINDER_options_page() {
         ?>
         <div class="wrap">
             <header>
                 <h1>Block Finder</h1>
-                <?php $this->bf_display_search_form(); ?>
+                <?php $this->BFINDER_display_search_form(); ?>
                 <!-- <button>Toggle</button> -->
             </header>
             <div id="bf-blocks-container">
                 <div id="bf-no-results" >🔥 No blocks found.</div>
-                <?php $this->bf_display_blocks(); ?>
+                <?php $this->BFINDER_display_blocks(); ?>
             </div>
         </div>
         <?php
     }
 
-    private function bf_display_search_form() {
+    private function BFINDER_display_search_form() {
         ?>
         <form id="bf-search-form" method="get" action="">
             <input type="hidden" name="page" value="block_finder">
@@ -66,14 +66,14 @@ class BlockFinder {
         <?php
     }
 
-    private function bf_display_blocks() {
+    private function BFINDER_display_blocks() {
         $posts = get_posts(array('numberposts' => -1, 'post_type' => array('post', 'page')));
         $blocks = array();
 
         foreach ($posts as $post) {
             if (has_blocks($post->post_content)) {
                 $post_blocks = parse_blocks($post->post_content);
-                $this->bf_get_blocks($post_blocks, $blocks, $post);
+                $this->BFINDER_get_blocks($post_blocks, $blocks, $post);
             }
         }
 
@@ -94,10 +94,10 @@ class BlockFinder {
         }
     }
 
-    private function bf_get_blocks($post_blocks, &$blocks, $post) {
+    private function BFINDER_get_blocks($post_blocks, &$blocks, $post) {
         foreach ($post_blocks as $block) {
             if (isset($block['blockName'])) {
-                $block_title = $this->bf_get_block_title($block['blockName']);
+                $block_title = $this->BFINDER_get_block_title($block['blockName']);
                 if (!isset($blocks[$block_title])) {
                     $blocks[$block_title] = array();
                 }
@@ -107,12 +107,12 @@ class BlockFinder {
             }
 
             if (isset($block['innerBlocks']) && !empty($block['innerBlocks'])) {
-                $this->bf_get_blocks($block['innerBlocks'], $blocks, $post);
+                $this->BFINDER_get_blocks($block['innerBlocks'], $blocks, $post);
             }
         }
     }
 
-    private function bf_get_block_title($block_name) {
+    private function BFINDER_get_block_title($block_name) {
         $block_registry = WP_Block_Type_Registry::get_instance();
         $block_type = $block_registry->get_registered($block_name);
 
