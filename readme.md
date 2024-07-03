@@ -10,6 +10,7 @@ Block Finder is a WordPress plugin that helps you discover and manage the usage 
 - **Dashicons Support**: Displays WordPress dashicons next to the post/page links for easy identification of content types.
 - **No Results Banner**: Displays a friendly message when no blocks match your search criteria.
 - **Clear Search**: Easily clear the search input with a button or by pressing the Escape key.
+- **Supports**: All post types, pages, templates and parts
 
 ## Installation
 

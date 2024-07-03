@@ -2,7 +2,7 @@
 /*
 Plugin Name: Block Finder
 Description: Displays all blocks grouped by name, listing posts, pages, reusable blocks, and template parts where each block is used.
-Version: 1.2.0
+Version: 1.3.0
 Author: DPlugins
 Author URI:        https://dplugins.com/
 Update URI:        https://github.com/krstivoja/block-finder
