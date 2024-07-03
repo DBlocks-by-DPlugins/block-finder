@@ -86,10 +86,15 @@ class BlockFinder {
             }
         }
 
-        // Fetch FSE block templates
+        // Fetch FSE block templates and template parts
         $theme = wp_get_theme();
         $theme_name = $theme->get('TextDomain');
-        $block_templates = get_block_templates([], 'wp_template');
+
+        $block_templates = array_merge(
+            get_block_templates([], 'wp_template'),
+            get_block_templates([], 'wp_template_part')
+        );
+
         foreach ($block_templates as $template) {
             $template_content = $template->content;
             if (has_blocks($template_content)) {
