@@ -99,7 +99,11 @@ class BlockFinder {
             $template_content = $template->content;
             if (has_blocks($template_content)) {
                 $template_blocks = parse_blocks($template_content);
-                $this->BFINDER_get_blocks($template_blocks, $blocks, (object) ['ID' => 'template_' . $template->slug, 'post_title' => $template->title]);
+                $this->BFINDER_get_blocks($template_blocks, $blocks, (object) [
+                    'ID' => 'template_' . $template->slug,
+                    'post_title' => $template->title,
+                    'type' => $template->type
+                ]);
             }
         }
 
@@ -107,17 +111,21 @@ class BlockFinder {
             echo '<div class="bf-block-group" data-block-title="' . esc_attr($block_title) . '">';
             echo '<div class="title-wrap"><h2>' . esc_html($block_title) . '</h2></div>';
             echo '<ul>';
-            foreach ($block_posts as $post_id => $post_title) {
-                if (!empty($post_title)) {
+            foreach ($block_posts as $post_id => $post) {
+                if (!empty($post->post_title)) {
                     if (strpos($post_id, 'template_') === 0) {
                         $template_id = substr($post_id, 9); // Remove 'template_' prefix
                         $template_id_encoded = urlencode($theme_name . '//' . $template_id); // Encode theme name and template ID
-                        echo '<li><a target="_blank" href="' . admin_url('site-editor.php?postType=wp_template&postId=' . $template_id_encoded . '&canvas=edit') . '"><span class="dashicons dashicons-admin-appearance"></span> ' . esc_html($post_title) . ' <span class="external-link" aria-hidden="true">→</span></a></li>';
+                        if ($post->type === 'wp_template') {
+                            echo '<li><a target="_blank" href="' . admin_url('site-editor.php?postType=wp_template&postId=' . $template_id_encoded . '&canvas=edit') . '"><span class="dashicons dashicons-admin-appearance"></span> ' . esc_html($post->post_title) . ' <span class="external-link" aria-hidden="true">→</span></a></li>';
+                        } else {
+                            echo '<li><a target="_blank" href="' . admin_url('site-editor.php?postType=wp_template_part&postId=' . $template_id_encoded . '&categoryId=' . urlencode($template_id) . '&categoryType=wp_template_part&canvas=edit') . '"><span class="dashicons dashicons-admin-appearance"></span> ' . esc_html($post->post_title) . ' <span class="external-link" aria-hidden="true">→</span></a></li>';
+                        }
                     } else {
                         $post_type = get_post_type($post_id);
                         $post_type_obj = get_post_type_object($post_type);
                         $dashicon = $post_type_obj->menu_icon ? $post_type_obj->menu_icon : 'dashicons-admin-post';
-                        echo '<li><a target="_blank" href="' . get_edit_post_link($post_id) . '"><span class="dashicons ' . esc_attr($dashicon) . '"></span> ' . esc_html($post_title) . ' <span class="external-link" aria-hidden="true">→</span></a></li>';
+                        echo '<li><a target="_blank" href="' . get_edit_post_link($post_id) . '"><span class="dashicons ' . esc_attr($dashicon) . '"></span> ' . esc_html($post->post_title) . ' <span class="external-link" aria-hidden="true">→</span></a></li>';
                     }
                 }
             }
@@ -134,7 +142,10 @@ class BlockFinder {
                     $blocks[$block_title] = array();
                 }
                 if (!isset($blocks[$block_title][$post->ID])) {
-                    $blocks[$block_title][$post->ID] = $post->post_title;
+                    $blocks[$block_title][$post->ID] = (object) [
+                        'post_title' => $post->post_title,
+                        'type' => isset($post->type) ? $post->type : 'post'
+                    ];
                 }
             }
 
